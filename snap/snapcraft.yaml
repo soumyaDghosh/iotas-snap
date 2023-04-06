@@ -30,8 +30,6 @@ parts:
     organize:
       snap/iotas/current/usr: usr
     parse-info: [usr/share/metainfo/org.gnome.gitlab.cheywood.Iotas.metainfo.xml]
-    prime:
-      - usr
   cleanup:
     after:  # Make this part run last; list all your other parts here
       - iotas
