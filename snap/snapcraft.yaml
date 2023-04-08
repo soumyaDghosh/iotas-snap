@@ -28,7 +28,6 @@ parts:
       pip install --target=$CRAFT_PART_INSTALL/snap/dialect/current/usr/lib/python3/dist-packages markdown-it-py
       pip install --target=$CRAFT_PART_INSTALL/snap/dialect/current/usr/lib/python3/dist-packages linkify-it-py
       pip install --target=$CRAFT_PART_INSTALL/snap/dialect/current/usr/lib/python3/dist-packages mdit-py-plugins
-      sed
       sed -e '1c#!/usr/bin/env python3' -i "${CRAFT_PART_INSTALL}/snap/iotas/current/usr/bin/iotas"
     organize:
       snap/iotas/current/usr: usr
