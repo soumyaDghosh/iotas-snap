@@ -47,6 +47,7 @@ parts:
       for snap in "core22" "gtk-common-themes" "gnome-42-2204"; do  # List all content-snaps and base snaps you're using here
           cd "/snap/$snap/current" && find . -type f,l -exec rm -f "$SNAPCRAFT_PRIME/{}" \;
       done
+      rm -rf $CRAFT_PRIME/usr/lib/python3/dist-packages/PyGObject-3.44.1.dist-info
 apps:
   iotas:
     command: usr/bin/iotas
