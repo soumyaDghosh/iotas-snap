@@ -1,6 +1,6 @@
 name: iotas # you probably want to 'snapcraft register <name>'
 base: core22 # the base snap is the execution environment for this snap
-version: '0.1.13' # just for humans, typically '1.2+git' or '1.3.2'
+#version: '0.1.13' # just for humans, typically '1.2+git' or '1.3.2'
 adopt-info: iotas
 icon: org.gnome.gitlab.cheywood.Iotas.svg
 grade: stable # must be 'stable' to release into candidate/stable channels
@@ -13,14 +13,11 @@ parts:
     # See 'snapcraft plugins'
     plugin: meson
     source: https://gitlab.gnome.org/cheywood/iotas.git
-    source-tag: $SNAPCRAFT_PROJECT_VERSION
+    #source-tag: $SNAPCRAFT_PROJECT_VERSION
     meson-parameters: [--prefix=/snap/iotas/current/usr]
     build-packages:
       - sqlite3
       - python3-pip
-    override-pull: |
-      craftctl default
-      sed -e 's|Icon=@ICON@|Icon=$SNAP/usr/share/icons/hicolor/scalable/apps/org.gnome.gitlab.cheywood.Iotas.svg|' -i data/org.gnome.gitlab.cheywood.Iotas.desktop.in.in
     override-build: |
       craftctl default
       pip install --target=$CRAFT_PART_INSTALL/snap/iotas/current/usr/lib/python3/dist-packages requests
@@ -28,7 +25,6 @@ parts:
       pip install --target=$CRAFT_PART_INSTALL/snap/iotas/current/usr/lib/python3/dist-packages markdown-it-py
       pip install --target=$CRAFT_PART_INSTALL/snap/iotas/current/usr/lib/python3/dist-packages linkify-it-py
       pip install --target=$CRAFT_PART_INSTALL/snap/iotas/current/usr/lib/python3/dist-packages mdit-py-plugins
-      #pip install --target=$CRAFT_PART_INSTALL/snap/iotas/current/usr/lib/python3/dist-packages PyGObject==3.42.2
       sed -e '1c#!/usr/bin/env python3' -i "${CRAFT_PART_INSTALL}/snap/iotas/current/usr/bin/iotas"
 
     organize:
