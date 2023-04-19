@@ -18,6 +18,9 @@ parts:
     build-packages:
       - sqlite3
       - python3-pip
+    override-pull: |
+      craftctl default
+      sed -i 's|self.__css_provider.load_from_data(style.encode("utf8"))|self.__css_provider.load_from_data(style.encode("utf8"), -1)|' iotas/editor_text_view.py
     override-build: |
       craftctl default
       pip install --target=$CRAFT_PART_INSTALL/snap/iotas/current/usr/lib/python3/dist-packages requests
