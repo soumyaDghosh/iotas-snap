@@ -48,10 +48,16 @@ parts:
           cd "/snap/$snap/current" && find . -type f,l -exec rm -f "$SNAPCRAFT_PRIME/{}" \;
       done
       rm -rf $CRAFT_PRIME/usr/lib/python3/dist-packages/PyGObject-3.44.1.dist-info
+slots:
+  iotas:
+    interface: dbus
+    bus: session
+    name: org.gnome.gitlab.cheywood.Iotas
 apps:
   iotas:
     command: usr/bin/iotas
     desktop: usr/share/applications/org.gnome.gitlab.cheywood.Iotas.desktop
+    common-id: org.gnome.gitlab.cheywood.Iotas
     extensions: [gnome]
     plugs:
       - home
