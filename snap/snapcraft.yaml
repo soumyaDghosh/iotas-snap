@@ -59,5 +59,7 @@ apps:
     desktop: usr/share/applications/org.gnome.gitlab.cheywood.Iotas.desktop
     common-id: org.gnome.gitlab.cheywood.Iotas
     extensions: [gnome]
+    environment:
+      PYGTKSPELLCHECK_DICTIONARIES: $SNAP/usr/lib/aspell
     plugs:
       - home
